@@ -1,11 +1,9 @@
-const fs = require('graceful-fs')
+const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
 const fswrite = promisify(fs.writeFile)
-const fsappend = promisify(fs.appendFile)
 
-const writeHeader = (pathToFile, header) => fswrite(pathToFile, header + '\r\n')
-const append = (pathToFile, row) => fsappend(pathToFile, row + '\r\n')
+const writeHeader = (pathToFile, file) => fswrite(pathToFile, file)
 
 const writeToCSV = (data, filename) => {
   const csv = path.join(__dirname, '/output/', filename)
@@ -15,23 +13,25 @@ const writeToCSV = (data, filename) => {
     'student_number',
     'canvas_user_id',
     'event_type',
-    'created_at'
+    'created_at',
+    'question_name(s)' + '\r\n'
   ]
 
-  writeHeader(csv, header)
-
-  data.forEach(quizEvent => {
-    quizEvent.events.forEach(({ event_type, created_at }) => {
-      const row = [
+  const expandedData = data.map(quizEvent => {
+    return (quizEvent.events.map(event => {
+      return [
         quizEvent.studentName,
         quizEvent.studentNumber,
         quizEvent.canvasUserId,
-        event_type,
-        created_at
-      ]
-      append(csv, row)
-    })
+        event.event_type,
+        event.created_at,
+        event.question_name
+      ].join(',')
+    })).join('\r\n') + '\r\n'
   })
+
+  expandedData.unshift(header)
+  writeHeader(csv, expandedData.join(''))
 }
 
 module.exports = writeToCSV

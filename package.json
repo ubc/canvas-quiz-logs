@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "graceful-fs": "^4.2.4",
-    "node-canvas-api": "^1.5.4",
+    "node-canvas-api": "^1.5.5",
     "ramda": "^0.27.0"
   }
 }
