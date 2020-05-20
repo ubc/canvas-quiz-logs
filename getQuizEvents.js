@@ -2,7 +2,7 @@ const canvasAPI = require('node-canvas-api')
 const R = require('ramda')
 
 async function getQuizEvents (courseId, quizId) {
-  const quizSubmissions = await canvasAPI.getQuizSubmissions(35180, 177349, ['include=user'])
+  const quizSubmissions = await canvasAPI.getQuizSubmissions(courseId, quizId, ['include=user'])
 
   const submissions = R.flatten(quizSubmissions.map(x => x.quiz_submissions))
   const users = R.flatten(quizSubmissions.map(x => x.users))
