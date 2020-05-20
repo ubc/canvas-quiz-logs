@@ -5,8 +5,10 @@ It returns a CSV with the following headers:
 * student_name
 * student_number
 * canvas_user_id
+* quiz_attempt
 * event_type
 * created_at
+* question_name(s)
 
 ## Getting Started
 
