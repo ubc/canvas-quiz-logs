@@ -12,6 +12,7 @@ const writeToCSV = (data, filename) => {
     'student_name',
     'student_number',
     'canvas_user_id',
+    'quiz_attempt',
     'event_type',
     'created_at',
     'question_name(s)' + '\r\n'
@@ -19,12 +20,15 @@ const writeToCSV = (data, filename) => {
 
   const expandedData = data.map(quizEvent => {
     return (quizEvent.events.map(event => {
+      const time = new Date(event.created_at)
+      const pst = time.toString()
       return [
         quizEvent.studentName,
         quizEvent.studentNumber,
         quizEvent.canvasUserId,
+        quizEvent.quizAttempt,
         event.event_type,
-        event.created_at,
+        pst,
         event.question_name
       ].join(',')
     })).join('\r\n') + '\r\n'

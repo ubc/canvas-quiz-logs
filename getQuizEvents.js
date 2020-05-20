@@ -44,7 +44,8 @@ async function getQuizEvents (courseId, quizId) {
             events: handleEvents(events, quizQuestions),
             canvasUserId: submission.user_id,
             studentName: user.name,
-            studentNumber: user.sis_user_id
+            studentNumber: user.sis_user_id,
+            quizAttempt: submissionAttempt
           }))
       })
   )
