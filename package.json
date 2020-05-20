@@ -1,0 +1,16 @@
+{
+  "name": "canvas-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Justin Lee, Learning Analytics",
+  "license": "ISC",
+  "dependencies": {
+    "graceful-fs": "^4.2.4",
+    "node-canvas-api": "^1.5.4",
+    "ramda": "^0.27.0"
+  }
+}
