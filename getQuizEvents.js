@@ -19,8 +19,7 @@ async function getQuizEvents (courseId, quizId) {
             studentName: user.name,
             studentNumber: user.sis_user_id
           }))
-      }
-      )
+      })
   )
 
   return submissionsWithEvents
