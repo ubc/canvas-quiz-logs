@@ -26,7 +26,7 @@ An example `CANVAS_API_DOMAIN` is `https://{school}.instructure.com/api/v1`
 
 ### Installation and starting application
 
-1. Clone this repo. `git clone https://repo.code.ubc.ca/learninganalytics/canvas-quiz-logs.git`
+1. Clone this repo. `git clone https://github.com/ubccapico/canvas-quiz-logs.git`
 1. Then cd into the repo. `cd canvas-quiz-logs`
 1. Run the installation script. `npm install` (If you see `babel-node: command not found`, you've missed this step.)
 1. Open `index.js` and supply the Canvas course id and quiz id to the `getQuizEvents({canvas_id}, {quiz_id})`
