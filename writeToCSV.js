@@ -15,6 +15,7 @@ const writeToCSV = (data, filename) => {
     'quiz_attempt',
     'event_type',
     'created_at',
+    'time_string',
     'question_name(s)' + '\r\n'
   ]
 
@@ -29,6 +30,7 @@ const writeToCSV = (data, filename) => {
         quizEvent.quizAttempt,
         event.event_type,
         pst,
+        event.created_at,
         event.question_name
       ].join(',')
     })).join('\r\n') + '\r\n'
