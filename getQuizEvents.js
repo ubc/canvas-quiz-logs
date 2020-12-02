@@ -28,7 +28,7 @@ function handleEvents (events, quizQuestions) {
 async function getQuizEvents (courseId, quizId) {
   const quizSubmissions = await canvasAPI.getQuizSubmissions(courseId, quizId, 'include=user')
 
-  const submissions = R.flatten(quizSubmissions.map(x => x.quiz_submissions))
+  const submissions = R.flatten(quizSubmissions.map(x => x.quiz_submissions)).filter(x => x.attempt)
   const users = R.flatten(quizSubmissions.map(x => x.users))
 
   const submissionsWithEvents = await Promise.all(
