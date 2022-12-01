@@ -19,6 +19,8 @@ function handleEvents (events, quizQuestions) {
             .map(e => findQuestionName(Number(e.quiz_question_id), quizQuestions))
             .join('; ')
         }
+      } else if (event.event_type === 'question_flagged') {
+          event.question_name = findQuestionName(Number(event.event_data.questionId), quizQuestions)
       }
     }
     return event
