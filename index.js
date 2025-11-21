@@ -7,8 +7,8 @@ if (Number.isNaN(nodeMajor) || nodeMajor < 20) {
   process.exit(1)
 }
 
-const courseId = 4271
-const quizId = 32558
+const courseId = /* add course id here */
+const quizId = /* add quiz id here */
 
 const run = async () => {
   const data = await getQuizEvents(courseId, quizId)
