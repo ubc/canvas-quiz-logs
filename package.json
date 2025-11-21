@@ -2,6 +2,7 @@
   "name": "canvas-quiz",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -10,13 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "graceful-fs": "^4.2.4",
-    "node-canvas-api": "^1.7.4",
+    "node-canvas-api": "^2.0.0",
     "ramda": "^0.27.0"
   },
-  "overrides": {
-    "request": {
-      "form-data": "2.5.4"
-    },
-    "tough-cookie": "4.1.3"
+  "engines": {
+    "node": ">=20"
   }
 }

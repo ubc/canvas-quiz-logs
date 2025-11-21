@@ -1,12 +1,16 @@
-const fs = require('fs')
-const path = require('path')
-const { promisify } = require('util')
+import fs from 'fs'
+import path from 'path'
+import { promisify } from 'util'
+import { fileURLToPath } from 'url'
+
 const fswrite = promisify(fs.writeFile)
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const writeHeader = (pathToFile, file) => fswrite(pathToFile, file)
 
-const writeToCSV = (data, filename) => {
-  const csv = path.join(__dirname, '/output/', filename)
+const writeToCSV = async (data, filename) => {
+  const csv = path.join(__dirname, 'output', filename)
 
   const header = [
     'student_name',
@@ -37,7 +41,7 @@ const writeToCSV = (data, filename) => {
   })
 
   expandedData.unshift(header)
-  writeHeader(csv, expandedData.join(''))
+  await writeHeader(csv, expandedData.join(''))
 }
 
-module.exports = writeToCSV
+export default writeToCSV
